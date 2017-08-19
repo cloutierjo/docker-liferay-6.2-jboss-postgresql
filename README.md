@@ -27,12 +27,12 @@ Added to those packages, you may need to create a "/opt/liferay/docker" folder t
 From project root folder :
 
     docker build -t docker-liferay-6.2-jboss-postgresql .
-    JOB=$(docker run -d -v /opt/liferay/docker/deploy:/opt/liferay/deploy -p 50022:22 -p 55432:5432 -p 58080:8080 -p 58787:8787 -p51234:1234 --name docker-liferay-6.2-jboss-postgresql docker-liferay-6.2-jboss-postgresql)
+    JOB=$(docker run -d -v /opt/liferay/docker/deploy:/opt/liferay/deploy -p 50022:22 -p 55432:5432 -p 58080:8080 -p 58787:8787 -p51234:1234 --name liferay-6.2-jboss-postgresql liferay-6.2-jboss-postgresql)
     docker start $JOB
 
 Note :
 
-    Arbitrary image and container name : docker-liferay-6.2-jboss-postgresql
+    Arbitrary image and container name : liferay-6.2-jboss-postgresql
     Arbitrary port mapping :
         port 22 is mapped to 50022 (ssh)
         port 5432 is mapped to 55432 (postgresql)
