@@ -18,7 +18,7 @@ Before running the docker builder, you need to provide following packages in ./a
 
 * Official Liferay Poratal 6.x jboss bundle .zip archive : liferay-portal-jboss-6.x<...>.zip
 
-* Liferay license .xml file : license<...>.xml
+* Liferay license .xml file : activation<...>.xml
 
 Added to those packages, you may need to create a "/opt/liferay/docker" folder to be able to link a host deploy folder to the one in the container (used in the docker run command below)
 
@@ -26,8 +26,8 @@ Added to those packages, you may need to create a "/opt/liferay/docker" folder t
 
 From project root folder :
 
-    docker build -t docker-liferay-6.2-jboss-postgresql .
-    JOB=$(docker run -d -v /opt/liferay/docker/deploy:/opt/liferay/deploy -p 50022:22 -p 55432:5432 -p 58080:8080 -p 58787:8787 -p51234:1234 --name liferay-6.2-jboss-postgresql liferay-6.2-jboss-postgresql)
+    docker build -t liferay-6.2-jboss-postgresql .
+    JOB=$(docker run -d -v /opt/liferay/docker/deploy:/opt/liferay/deploy -p 50022:22 -p 55432:5432 -p 58080:8080 -p 58787:8787 --name liferay-6.2-jboss-postgresql liferay-6.2-jboss-postgresql)
     docker start $JOB
 
 Note :
@@ -38,7 +38,6 @@ Note :
         port 5432 is mapped to 55432 (postgresql)
         port 8080 is mapped to 58080 (jboss)
         port 8787 is mapped to 58787 (jboss debug port)
-        port 1234 is mapped to 51234 (jrebel remote port)   
 
 ## Accounts :
 
