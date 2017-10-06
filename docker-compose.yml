@@ -1,0 +1,19 @@
+version: '3'
+services:
+    db:
+        image: "postgres:9.3"
+        environment:
+            POSTGRES_PASSWORD: lportal
+            POSTGRES_USER: lportal
+        ports:
+            - 45432:5432
+        
+    liferay:
+        build: ./liferay
+        ports:
+            - 48080:8080
+            - 48787:8787
+        depends_on:
+            - db
+    smtp:
+        image: "munkyboy/fakesmtp"
